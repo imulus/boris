@@ -1,4 +1,4 @@
-# Boris - A Campfire Bot built in Node
+# Boris - A Node-powered Campfire Bot written in CoffeeScript
 
 ## Installation
 
