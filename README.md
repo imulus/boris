@@ -16,4 +16,4 @@
   
 4. Get it on
 
-        $ bash start.sh
+        $ sh start.sh
