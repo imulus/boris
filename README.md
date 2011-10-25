@@ -1,8 +1,6 @@
-# Boris
+# Boris - A Campfire Bot built in Node
 
-## A Campfire Bot built in Node
-
-### Installation
+## Installation
 
 1. Install Node (if you haven't already) with [Homebrew](http://mxcl.github.com/homebrew/)
 
