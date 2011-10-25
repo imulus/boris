@@ -1,0 +1,88 @@
+#!/usr/bin/env coffee
+##
+# hubot [options]
+#
+# Launch an interactive hubot
+#
+require.paths.unshift __dirname + "/../node_modules"
+require.paths.unshift __dirname + "/../src"
+
+Fs         = require 'fs'
+Path       = require 'path'
+HTTP       = require 'http'
+Creator    = require 'creator'
+OptParse   = require 'optparse'
+PortNumber = parseInt(process.env.PORT) || 8080
+
+Switches = [
+  [ "-h", "--help",              "Display the help information"],
+  [ "-a", "--adapter ADAPTER",   "The Adapter to use"],
+  [ "-c", "--create PATH",       "Create a deployable hubot"],
+  [ "-s", "--enable-slash",      "Enable replacing the robot's name with '/'"],
+  [ "-n", "--name NAME",         "The name of the robot in chat" ]
+]
+
+Options =
+  path: "."
+  name: "Hubot"
+  create: false
+  adapter: "stdio"
+
+Parser = new OptParse.OptionParser(Switches)
+Parser.banner = "Usage hubot [options]"
+
+Parser.on "adapter", (opt, value) ->
+  Options.adapter = value
+
+Parser.on "name", (opt, value) ->
+  Options.name = value
+
+Parser.on "create", (opt, value) ->
+  Options.path = value
+  Options.create = true
+
+Parser.on "enable-slash", (opt) ->
+  Options.enableSlash = true
+
+Parser.on "help", (opt, value) ->
+  console.log Parser.toString()
+  process.exit 0
+
+Parser.parse process.ARGV
+
+if Options.create
+  creator = new Creator.Creator(Options.path)
+  creator.run()
+else
+  switch Options.adapter
+    when "irc"
+      Hubot = require("hubot/irc").IrcBot
+    when "campfire"
+      Hubot = require("hubot/campfire").Campfire
+    else
+      Hubot = require("hubot/shell").Shell
+
+  scriptsPath = Path.resolve "./scripts"
+  console.log "Loading deploy-local scripts at #{scriptsPath}"
+  robot = new Hubot scriptsPath, Options.name
+  robot.enableSlash = Options.enableSlash
+
+  scriptsPath = Path.resolve "src", "hubot", "scripts"
+  console.log "Loading hubot core scripts for relative scripts at #{scriptsPath}"
+  robot.load scriptsPath
+
+  scriptsFile = Path.resolve "hubot-scripts.json"
+  Path.exists scriptsFile, (exists) =>
+    if exists
+      console.log "Loading hubot-scripts from #{scriptsFile}"
+      Fs.readFile scriptsFile, (err, data) =>
+        JSON.parse(data).forEach (plugin) =>
+          robot.loadFile Path.resolve("node_modules", "hubot-scripts", "src", "scripts"), plugin
+    else
+      scriptsPath = Path.resolve "src", "scripts"
+      console.log "Loading hubot-scripts plugins at #{scriptsPath}"
+      robot.load scriptsPath
+
+  robot.run()
+
+# vim:ft=coffee ts=2 sw=2 et :

@@ -1,19 +1,35 @@
-# Boris - A Node-powered Campfire Bot written in CoffeeScript
+# Hubot
 
-## Installation
+This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
 
-1. Install Node (if you haven't already) with [Homebrew](http://mxcl.github.com/homebrew/)
+You'll probably never have to hack on this repo directly.  Instead this
+repo provides a library that's distributed by npm that you simply
+require in your project.
 
-        $ brew install node
+## Getting Your Own
 
-2. Clone
+Make sure you have [node.js](http://nodejs.org/) and [npm](http://npmjs.org/) installed.
 
-        $ git clone git@github.com:imulus/boris.git
+Download the [latest version of hubot](https://github.com/github/hubot/downloads).
 
-3. Install Dependencies
+Then follow the instructions in the README in the `hubot` directory.
 
-        $ npm install -d
-  
-4. Get it on
+## Scripts
 
-        $ sh start.sh
+Hubot ships with a couple of default scripts, but there's a growing
+number of extras in the [hubot-scripts](https://github.com/github/hubot-scripts)
+repository.  `hubot-scripts` is a way to share scripts with the entire
+community.  Check out the [README](https://github.com/github/hubot-scripts#readme)
+for more help on installing individual scripts.
+
+## Local Testing
+
+Install all of the required dependencies by running `npm install`.
+
+It's easy to test scripts locally with an interactive shell:
+
+    % bin/hubot
+
+...and to run tests:
+
+    % make test
