@@ -1,0 +1,16 @@
+{
+  "name": "boris",
+  "version": "0.1.0",
+  "author": "imulus",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/imulus/boris.git"
+  },
+
+  "dependencies": {
+    "hubot": ">=1.1.10"
+  },
+
+  "main": "./server",
+  "engine": "node >= 0.4.1 < 0.5.0"
+}
