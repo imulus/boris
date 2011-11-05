@@ -49,3 +49,15 @@
 5. Grab a beer
 
         $ boris get me a beer
+
+## Debugging
+
+1. If you suspect that Boris has crashed, check the state of the process:
+
+        $ heroku ps
+
+2. If the web process has crashed, check the logs to see if you can figure out why:
+
+        $ heroku logs
+
+3. Fix it.
