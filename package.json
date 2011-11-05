@@ -8,6 +8,7 @@
   },
 
   "dependencies": {
+    "express": "2.5.0",
     "coffee-script": "1.1.2",
     "hubot": ">=1.1.10"
   },
