@@ -317,6 +317,7 @@ images = [
   "https://github.com/taylorsmith/gifs/raw/master/zmwaf.gif"
 ]
 
+
 module.exports = (robot) ->
-  robot.hear /gif/i, (msg) ->
+  robot.respond /gif$/i, (msg) ->
     msg.send msg.random images
