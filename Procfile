@@ -1,1 +1,1 @@
-app: node server.js
+app: bin/hubot -a campfire -n Boris

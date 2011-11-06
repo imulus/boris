@@ -1,63 +1,36 @@
-# Boris
+# Hubot
 
-## The Rules&trade;
+This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
 
-1. Always work on the `develop` branch or a topic/feature branch derived from `develop`.
-2. Merge topic branches into `develop` before merging into `master`
-3. `master` is always deployable. Be sure to review your code before merging into `master`.
-4. When you push `master` to GitHub, also push it to Heroku.
-5. Don't talk about Fight Club.
+You'll probably never have to hack on this repo directly.  Instead this
+repo provides a library that's distributed by npm that you simply
+require in your project.
 
-## Installation
+## Getting Your Own
 
-1. Clone
+Make sure you have [node.js](http://nodejs.org/) and [npm](http://npmjs.org/) installed.
 
-        $ git clone git@github.com:imulus/boris.git
+Download the [latest version of hubot](https://github.com/github/hubot/downloads).
 
-2. Install Dependencies
+Then follow the instructions in the README in the `hubot` directory.
 
-        $ npm install -d
+## Scripts
 
-3. Add Campfire variables to your environment
+Hubot ships with a couple of default scripts, but there's a growing
+number of extras in the [hubot-scripts](https://github.com/github/hubot-scripts)
+repository. `hubot-scripts` is a way to share scripts with the entire
+community.  Check out the [README](https://github.com/github/hubot-scripts#readme)
+for more help on installing individual scripts.
 
-        $ export HUBOT_CAMPFIRE_TOKEN="a5f31260a9e1bd3559e651ce2a8c12f4a52de65a"
-        $ export HUBOT_CAMPFIRE_ACCOUNT="imulus"
-        $ export HUBOT_CAMPFIRE_ROOMS="444159"
+## Local Testing
 
-3. Squeal like a pig
+Install all of the required dependencies by running `npm install`.
 
-        $ node server.js
+It's easy to test scripts locally with an interactive shell:
 
-## Deployment
+    % export PATH="node_modules/.bin:$PATH"
+    % bin/hubot
 
-1. Install the Heroku gem if you haven't already
+...and to run tests:
 
-        $ gem install heroku
-
-2. Set up your Heroku keys if you haven't already
-
-        $ heroku keys:clear && rm ~/.heroku/credentials && heroku list
-
-3. Set Heroku as a remote (only need to do this once per clone)
-
-        $ git remote add heroku git@heroku.com:boris.git
-
-4. Deploy by pushing the master branch to Heroku
-
-        $ git push heroku master
-
-5. Grab a beer
-
-        $ boris get me a beer
-
-## Debugging
-
-1. If you suspect that Boris has crashed, check the state of the process:
-
-        $ heroku ps
-
-2. If the web process has crashed, check the logs to see if you can figure out why:
-
-        $ heroku logs
-
-3. Fix it.
+    % make test
