@@ -6,4 +6,3 @@ Hubot = require 'hubot'
 Boris = Hubot.loadBot 'campfire', scripts_path, 'Boris'
 
 Boris.run()
-
