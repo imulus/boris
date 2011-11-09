@@ -1,0 +1,6 @@
+module.exports = (robot) ->
+  robot.hear /.*(dubstep|dub|wub)/i, (msg) ->
+    msg.send("WUBUB DUBUBUBUB WUBUBHBHB HUUUUU REEEE HUUUUU RUUUUU REEEE ERRR ERWRERRRR WUUWUBUBUBHBUB HUUUUU UHHHHH WUBUBUBUB WEEEEEUUUB WEEEEEEUUUUB WEE")
+
+
+
