@@ -9,5 +9,5 @@ images = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /.*(flip table|(╯°□°）╯︵ ┻━┻)/i, (msg) ->
+  robot.hear /flip table/i, (msg) ->
     msg.send msg.random images
