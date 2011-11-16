@@ -5,7 +5,7 @@
 #                     language.
 
 module.exports = (robot) ->
-  robot.hear /(speak)( me)? (.*)/i, (msg) ->
+  robot.respond /(speak)( me)? (.*)/i, (msg) ->
     term   = "\"#{msg.match[3]}\""
     apiKey = process.env.HUBOT_MSTRANSLATE_APIKEY
     langs = ["en"]
