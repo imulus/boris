@@ -1,1 +1,1 @@
-app: bin/hubot -a campfire -n Boris
+app: bin/hubot -a campfire -n Hubot
