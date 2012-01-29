@@ -1,17 +1,13 @@
 {
-  "name":        "hosted-hubot",
-  "version":     "0.2.0",
-  "author":      "GitHub Inc.",
-  "keywords":    "github hubot campfire bot",
-  "description": "A simple helpful Robot for your Company",
-  "licenses":     [{
-    "type":       "MIT",
-    "url":        "http://github.com/github/hubot/raw/master/LICENSE"
-  }],
+  "name":        "boris",
+  "version":     "1.0.0",
+  "author":      "Imulus",
+  "keywords":    "imulus boris github hubot campfire bot",
+  "description": "A Campfire bot built on Hubot",
 
   "repository" : {
     "type" : "git",
-    "url" : "http://github.com/github/hubot.git"
+    "url" : "https://github.com/imulus/boris.git"
   },
 
   "dependencies": {
@@ -20,4 +16,3 @@
     "optparse": "1.0.3"
   }
 }
-
