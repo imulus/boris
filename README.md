@@ -2,13 +2,9 @@
 
 Boris is the official Imulus Campfire bot. He automates crucial business activities such as adding mustaches to pictures, flipping tables over, and loading up [Celery Man](http://www.youtube.com/watch?v=XWX4GUYGQXQ). He is built on top of [Hubot](https://github.com/github/hubot), written in [CoffeeScript](http://coffeescript.org/), backed by [node.js](http://nodejs.org/), and deployed on [Heroku](http://www.heroku.com/).
 
----
-
 ## The Rules™
 
 With great power comes great responsibility. Boris is a subtle man, let's keep him that way. Use `robot.hear` sparingly.
-
----
 
 ## Getting Started
 
@@ -34,8 +30,6 @@ To test your scripts, run the following:
 
 Then, you can interact with hubot by typing `hubot help`
 
----
-
 ## Deployment
 
 Boris lives in a cedar house on Heroku. To deploy, follow these steps:
@@ -55,8 +49,6 @@ Boris lives in a cedar house on Heroku. To deploy, follow these steps:
 4. Push the master branch to Heroku:
 
         $ git push heroku master
-
----
 
 ## Debugging
 
