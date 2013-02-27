@@ -11,7 +11,8 @@ images = [
   "https://github.com/taylorsmith/gifs/raw/master/flip-table6.gif",
   "https://github.com/taylorsmith/gifs/raw/master/flip-table7.gif",
   "https://github.com/taylorsmith/gifs/raw/master/flip-table8.gif",
-  "https://github.com/taylorsmith/gifs/raw/master/flip-table9.gif"
+  "https://github.com/taylorsmith/gifs/raw/master/flip-table9.gif",
+  "http://i.imgur.com/k80AzQU.gif"
 ]
 
 module.exports = (robot) ->
