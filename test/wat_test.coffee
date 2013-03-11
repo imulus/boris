@@ -1,10 +1,6 @@
 require 'should'
 
-robot =
-  regex: null
-  hear: (regex, fn) -> @regex = regex
-  triggers_message_for: (str) -> @regex.test str
-
+robot = require('./support/robot')()
 wat = require('../scripts/wat')(robot)
 
 describe "wat", ->
