@@ -5,5 +5,13 @@ module.exports = (robot) ->
   robot.hear /.*morale/gi, (msg) ->
     msg.http('http://toms-morale.herokuapp.com/morale.json')
        .get() (err, res, body) ->
-          morale = Morale.fromJSON(body)
-          msg.send "Tom's Morale is currently " + morale.value + "%. (last updated " + time_ago_in_words(morale.updated) + ")"
+          {value, updated} = Morale.fromJSON(body)
+
+          emoji = switch true
+                    when value > 90 then ":horse:"
+                    when value > 60 then ":thumbsup:"
+                    when value > 30 then ":ok_hand:"
+                    when value > 10 then ":thumbsdown:"
+                    else ":shit:"
+
+          msg.send "Tom's morale is currently " + value + "%. " + emoji + " (updated " + time_ago_in_words(updated) + ")"
