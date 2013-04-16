@@ -1,6 +1,6 @@
 module.exports = (robot) ->
 
-  robot.respond /(polite|compliment) (.*)?/i, (msg) ->
+  robot.respond /(compliment|insult) (.*)?/i, (msg) ->
     msg.http("http://politely.herokuapp.com/random.txt")
       .get() (err, res, compliment) ->
         recipient = escape(msg.match[2])
