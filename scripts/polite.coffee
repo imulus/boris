@@ -1,8 +1,14 @@
 module.exports = (robot) ->
 
-  robot.respond /(polite|compliment) (me)?/i, (msg) ->
+  robot.respond /(polite|compliment) (.*)?/i, (msg) ->
     msg.http("http://politely.herokuapp.com/random.txt")
       .get() (err, res, compliment) ->
-        recipient = msg.message.user.name
-        msg.send "" + recipient + ": " + compliment
+        recipient = escape(msg.match[2])
+
+        if not recipient or recipient is "me"
+          name = msg.message.user.name
+        else
+          name = recipient
+
+        msg.send "" + name + ": " + compliment
 
