@@ -1,7 +1,7 @@
 Morale = require "../lib/morale"
 time_ago_in_words = require "../lib/time_ago_in_words"
 
-sendMorale = (msg, updated=false) ->
+sendMorale = (msg, recently_updated=false) ->
   msg.http('http://toms-morale.herokuapp.com/morale.json')
      .get() (err, res, body) ->
         {value, updated} = Morale.fromJSON(body)
@@ -13,20 +13,20 @@ sendMorale = (msg, updated=false) ->
                   when value > 10 then ":thumbsdown:"
                   else ":shit:"
 
-        if updated
+        if recently_updated
           msg.send "Tom's morale is now #{value}%. #{emoji}"
         else
           msg.send "Tom's morale is currently #{value}%. #{emoji} (updated #{time_ago_in_words(updated)})"
 
 
 module.exports = (robot) ->
-  robot.hear /.*morale/gi, (msg) -> sendMorale(msg)
-
-  robot.respond /set morale to (*.)/i, (msg) ->
-    value = parseInt(msg.match[1])
-    return unless value
+  robot.respond /(set|update) morale to (.*)/i, (msg) ->
+    value = parseInt(msg.match[2])
+    return if isNaN(value)
 
     msg.http('http://toms-morale.herokuapp.com/')
-      .post({ morale: value }) (err, res, body) ->
-        sendMorale(msg, true)
+       .header("Content-type", "application/json")
+       .post(JSON.stringify({'morale': value})) (err, res, body) ->
+         sendMorale(msg, true)
 
+  robot.hear /.*morale\??$/gi, (msg) -> sendMorale(msg)

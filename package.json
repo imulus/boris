@@ -13,7 +13,8 @@
   "dependencies": {
     "hubot": "2.3.2",
     "hubot-scripts": "2.1.1",
-    "optparse": "1.0.3"
+    "optparse": "1.0.3",
+    "querystring": "*"
   },
 
   "devDependencies": {
