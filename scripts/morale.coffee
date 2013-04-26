@@ -20,6 +20,14 @@ sendMorale = (msg, recent=false) ->
         else
           msg.send "Tom's morale is currently #{value}%. #{emoji} (updated #{time_ago_in_words(updated)})"
 
+setMorale = (msg, value) ->
+  value = parseInt(value)
+  return if isNaN(value)
+
+  msg.http('http://toms-morale.herokuapp.com/')
+     .header("Content-type", "application/json")
+     .post(JSON.stringify({'morale': value})) (err, res, body) ->
+       sendMorale(msg, true)
 
 module.exports = (robot) ->
   robot.router.post "/hubot/morale", (req, res) ->
@@ -31,13 +39,6 @@ module.exports = (robot) ->
     res.writeHead 200, {'Content-Type': 'text/plain'}
     res.end 'Thanks\n'
 
-  robot.respond /(set|update) morale to (.*)/i, (msg) ->
-    value = parseInt(msg.match[2])
-    return if isNaN(value)
-
-    msg.http('http://toms-morale.herokuapp.com/')
-       .header("Content-type", "application/json")
-       .post(JSON.stringify({'morale': value})) (err, res, body) ->
-         sendMorale(msg, true)
-
+  robot.respond /(set|update) morale( to)? (\d+)/i, (msg) -> setMorale(msg, msg.match[3])
+  robot.respond /morale (me|is)? (\d+)/i, (msg) -> setMorale(msg, msg.match[2])
   robot.hear /.*morale\??$/gi, (msg) -> sendMorale(msg)
