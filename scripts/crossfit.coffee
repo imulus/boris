@@ -8,7 +8,12 @@ images = [
   "http://eatwatchrun.com/wp-content/uploads/gif.gif",
   "http://i.imgur.com/HsFq0.gif",
   "http://thechive.files.wordpress.com/2013/01/flying-chest-exercise-crossfit-wtf.gif?w=248",
-  "http://i.imgur.com/n8AaEkg.gif"
+  "http://i.imgur.com/n8AaEkg.gif",
+  "http://i.imgur.com/CX2AryG.gif",
+  "http://i.imgur.com/Yzjxi.jpg",
+  "http://stream1.gifsoup.com/view1/4308526/crossfit-resilience-o.gif",
+  "http://cdn.bleacherreport.net/images_root/slides/photos/003/230/415/ScreenShot2013-06-25at1.26.26PM_crop_650x440.png?1372198387",
+  "http://davidkanigan.files.wordpress.com/2012/11/a-funny-gif-cat-push-ups-3.gif?w=300&h=194"
 ]
 
 module.exports = (robot) ->
