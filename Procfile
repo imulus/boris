@@ -1,1 +1,1 @@
-app: bin/hubot -a campfire -n Boris
+web: bin/hubot -a slack -n Boris
