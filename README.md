@@ -1,6 +1,6 @@
 # Boris
 
-Boris is the official Imulus Campfire bot. He automates crucial business activities such as adding mustaches to pictures, flipping tables over, and loading up [Celery Man](http://www.youtube.com/watch?v=XWX4GUYGQXQ). He is built on top of [Hubot](https://github.com/github/hubot), written in [CoffeeScript](http://coffeescript.org/), backed by [node.js](http://nodejs.org/), and deployed on [Heroku](http://www.heroku.com/).
+Boris is the official Imulus Slack bot. He automates crucial business activities such as adding mustaches to pictures, flipping tables over, and loading up [Celery Man](http://www.youtube.com/watch?v=XWX4GUYGQXQ). He is built on top of [Hubot](https://github.com/github/hubot), written in [CoffeeScript](http://coffeescript.org/), backed by [node.js](http://nodejs.org/), and deployed on [Heroku](http://www.heroku.com/).
 
 ## The Rules™
 
