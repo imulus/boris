@@ -8,4 +8,7 @@ module.exports = (robot) ->
 
     msg.http('http://imulusload.herokuapp.com/')
       .post({'name': msg.message.user.name.toLowerCase(),'load': value}) (err, res, body) ->
+      	console.log("Error: " + error)
+      	console.log("Body: " + body)
+      	console.log("Response: " + res)
       	msg.send "Okay, I'll update that"
