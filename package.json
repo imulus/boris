@@ -2,8 +2,8 @@
   "name":        "boris",
   "version":     "1.0.0",
   "author":      "Imulus",
-  "keywords":    "imulus boris github hubot campfire bot",
-  "description": "A Campfire bot built on Hubot",
+  "keywords":    "imulus boris github hubot slack bot",
+  "description": "A Slack bot built on Hubot",
 
   "repository" : {
     "type" : "git",
