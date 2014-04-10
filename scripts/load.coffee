@@ -6,6 +6,7 @@ module.exports = (robot) ->
     console.log("Received load message with load " + value)
     return if isNaN(value)
 
+    console.log("Posting load")
     msg.http('http://imulusload.herokuapp.com/')
       .post({'name': msg.message.user.name.toLowerCase(),'load': value}) (err, res, body) ->
       	console.log("Error: " + error)
