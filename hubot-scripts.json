@@ -1,1 +1,22 @@
-["celery-man.coffee", "redis-brain.coffee", "ascii.coffee", "auto-stache.coffee", "bees.coffee", "cheer.coffee", "fibonacci.coffee", "github-credentials.coffee", "haters.coffee", "hideyakids.coffee", "lastfm_np.coffee", "likeaboss.coffee", "polite.coffee", "remind.coffee", "shipit.coffee", "sudo.coffee", "uptime.coffee", "weather.coffee", "xkcd.coffee"]
+[
+	"celery-man.coffee",
+	"redis-brain.coffee",
+	"ascii.coffee",
+	"auto-stache.coffee",
+	"bees.coffee",
+	"cheer.coffee",
+	"fibonacci.coffee",
+	"github-credentials.coffee",
+	"haters.coffee",
+	"hideyakids.coffee",
+	"lastfm_np.coffee",
+	"load.coffee",
+	"likeaboss.coffee",
+	"polite.coffee",
+	"remind.coffee",
+	"shipit.coffee",
+	"sudo.coffee",
+	"uptime.coffee",
+	"weather.coffee",
+	"xkcd.coffee"
+]
