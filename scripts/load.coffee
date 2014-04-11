@@ -1,7 +1,7 @@
 
 setMorale = (msg, value) ->
 	if isNaN(value)
-    	msg.send("I have to set your load to a number, but I think you fucking knew that jackass.")
+    	msg.send("I have to set your load to a integer, but I think you fucking knew that jackass.")
     else if value > 100
     	msg.send("Yeah, give it that " + value + "%.  No wait, fuck off.")
     else if value < 0
