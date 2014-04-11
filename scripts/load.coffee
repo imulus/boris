@@ -28,5 +28,7 @@ module.exports = (robot) ->
 
   robot.respond /(set|update) my load( to)? (.*)/i, (msg) -> setMorale(msg, msg.match[3])
   robot.respond /add me to (team|group) (.*)/i, (msg) -> addToTeam(msg, msg.match[2])
+  robot.respond /add me to( the)? (.*?) (team|group)/i, (msg) -> addToTeam(msg, msg.match[2])
   robot.respond /(remove|delete) me from (team|group) (.*)/i, (msg) -> removeFromTeam(msg, msg.match[3])
+  robot.respond /(remove|delete) me from( the)? (.*?) (team|group)/i, (msg) -> removeFromTeam(msg, msg.match[3])
 
