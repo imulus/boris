@@ -1,6 +1,6 @@
 
 setMorale = (msg, matchString) ->
-  value = matchString.match(/\d+/)
+  value = matchString.match(/-?\d+/)
   if null == value
     msg.send("I have to set your load to a integer, but I think you fucking knew that jackass.")
   else if value > 100
@@ -10,7 +10,7 @@ setMorale = (msg, matchString) ->
   else
     msg.http('http://load.imulus.io/')
       .header("Content-type", "application/json")
-      .post(JSON.stringify({'name': msg.message.user.name.toLowerCase(),'load': value})) (err, res, body) ->
+      .post(JSON.stringify({'name': msg.message.user.name.toLowerCase(),'load': value[0]})) (err, res, body) ->
         msg.send("I'm right on that")
 
 addToTeam = (msg, team) ->
