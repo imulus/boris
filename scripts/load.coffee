@@ -8,7 +8,7 @@ setMorale = (msg, matchString) ->
   else if value < 0
     msg.send("So you're saying you're worthless?")
   else
-    msg.http('http://load.imulus.io/')
+    msg.http('http://127.0.0.1:9292/')
       .header("Content-type", "application/json")
       .post(JSON.stringify({'name': msg.message.user.name.toLowerCase(),'load': value[0]})) (err, res, body) ->
         msg.send("I'm right on that")
