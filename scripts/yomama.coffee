@@ -1,4 +1,4 @@
 module.exports = (robot) ->
 
-  robot.respond /(you\'re|you a) (.*)/i, (msg) ->
-  	msg.send("Yo mama's " + msg.match[2])
+  robot.respond /.*you\'re (.*)/i, (msg) ->
+  	msg.send("Yo mama's " + msg.match[1] + " SLUGHEAD")
