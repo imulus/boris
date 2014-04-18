@@ -32,9 +32,9 @@ retrieveLoads = (msg, callback) ->
     loadConfigs = JSON.parse(body)
     for loadConfig, configIdx in loadConfigs
       loads.push(Load.fromResponseObject(loadConfig))
-    callback(loads)
+    callback(msg, loads)
 
-displayLoads = (loads) ->
+displayLoads = (msg,loads) ->
   response = ""
   for load, loadIdx in loads
     response += load.user + ": " + load.value + "\n"
