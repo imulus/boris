@@ -41,10 +41,12 @@ displayLoads = (msg,loads) ->
   msg.send(response)
 
 showUserLoad = (msg, loads) ->
+  console.log(msg.message.user.name.toLowerCase())
   response = ""
   selectedLoad = null
   for load, loadIdx in loads
-    if msg.message.user.name.toLowerCase() == load.slack_name
+    console.log(load.slackName)
+    if msg.message.user.name.toLowerCase() == load.slackName
       selectedLoad = load
       break
   if null != selectedLoad
@@ -63,5 +65,5 @@ module.exports = (robot) ->
   robot.respond /(remove|delete) me from (team|group) (.*)/i, (msg) -> removeFromTeam(msg, msg.match[3])
   robot.respond /(remove|delete) me from( the)? (.*?) (team|group)/i, (msg) -> removeFromTeam(msg, msg.match[3])
   robot.respond /(load (me|us) up|dump (my|our) load[s]*)/i, (msg) -> retrieveLoads(msg, displayLoads)
-  robot.respond /what(\'s| is) my load/i, (msg) -> retrieveLoads(msg, showUserLoad)
+  robot.respond /what(\'s|\sis) my load/i, (msg) -> retrieveLoads(msg, showUserLoad)
 
