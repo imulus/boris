@@ -32,13 +32,28 @@ retrieveLoads = (msg, callback) ->
     loadConfigs = JSON.parse(body)
     for loadConfig, configIdx in loadConfigs
       loads.push(Load.fromResponseObject(loadConfig))
-    callback(loads)
+    callback(msg, loads)
 
-displayLoads = (loads) ->
+displayLoads = (msg, loads) ->
   response = ""
   for load, loadIdx in loads
     response += load.user + ": " + load.value + "\n"
   msg.send(response)
+
+showUserLoad = (msg, loads) ->
+  response = ""
+  selectedLoad = null
+  for load, loadIdx in loads
+    if msg.message.user.name.toLowerCase() == load.slack_name
+      selectedLoad = load
+      break
+  if null != selectedLoad
+    comment = ""
+    if selectedLoad.value > 90
+      comment = "My you're busy."
+    else if selectedLoad.value < 30
+      comment = "Probably should chat to someone about getting more work."
+    msg.send("Your load is " + selectedLoad.value + ". " + comment)
 
 module.exports = (robot) ->
 
@@ -48,4 +63,5 @@ module.exports = (robot) ->
   robot.respond /(remove|delete) me from (team|group) (.*)/i, (msg) -> removeFromTeam(msg, msg.match[3])
   robot.respond /(remove|delete) me from( the)? (.*?) (team|group)/i, (msg) -> removeFromTeam(msg, msg.match[3])
   robot.respond /(load (me|us) up|dump (my|our) load[s]*)/i, (msg) -> retrieveLoads(msg, displayLoads)
+  robot.respone /what(\'s| is) my load/i, (msg) -> retrieveLoads(msg, showUserLoad)
 
