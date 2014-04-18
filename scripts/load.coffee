@@ -41,11 +41,9 @@ displayLoads = (msg,loads) ->
   msg.send(response)
 
 showUserLoad = (msg, loads) ->
-  console.log(msg.message.user.name.toLowerCase())
   response = ""
   selectedLoad = null
   for load, loadIdx in loads
-    console.log(load.slackName)
     if msg.message.user.name.toLowerCase() == load.slackName
       selectedLoad = load
       break
