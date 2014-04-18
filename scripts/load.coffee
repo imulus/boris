@@ -1,5 +1,6 @@
+Load = require "../lib/load"
 
-setMorale = (msg, matchString) ->
+setLoad = (msg, matchString) ->
   value = matchString.match(/-?\d+/)
   if null == value
     msg.send("I have to set your load to a integer, but I think you fucking knew that jackass.")
@@ -25,11 +26,26 @@ removeFromTeam = (msg, team) ->
         .post(JSON.stringify({'user': msg.message.user.name.toLowerCase(),'team_name': team})) (err, res, body) ->
       	  msg.send("Clearly you don't like them, but okay")
 
+retrieveLoads = (msg, callback) ->
+  msg.http('http://load.imulus.io/load.json').get() (err, res, body) ->
+    loads = []
+    loadConfigs = JSON.parse(body)
+    for loadConfig, configIdx in loadConfigs
+      loads.push(Load.fromResponseObject(loadConfig))
+    callback(loads)
+
+displayLoads = (loads) ->
+  response = ""
+  for load, loadIdx in loads
+    response += load.user + ": " + load.value + "\n"
+  msg.send(response)
+
 module.exports = (robot) ->
 
-  robot.respond /(set|update) my load( to)? (.*)/i, (msg) -> setMorale(msg, msg.match[3])
+  robot.respond /(set|update) my load( to)? (.*)/i, (msg) -> setLoad(msg, msg.match[3])
   robot.respond /add me to (team|group) (.*)/i, (msg) -> addToTeam(msg, msg.match[2])
   robot.respond /add me to( the)? (.*?) (team|group)/i, (msg) -> addToTeam(msg, msg.match[2])
   robot.respond /(remove|delete) me from (team|group) (.*)/i, (msg) -> removeFromTeam(msg, msg.match[3])
   robot.respond /(remove|delete) me from( the)? (.*?) (team|group)/i, (msg) -> removeFromTeam(msg, msg.match[3])
+  robot.respond /(load (me|us) up|dump (my|our) load[s]*)/i, (msg) -> retrieveLoads(msg, displayLoads)
 
