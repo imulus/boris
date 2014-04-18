@@ -63,5 +63,5 @@ module.exports = (robot) ->
   robot.respond /(remove|delete) me from (team|group) (.*)/i, (msg) -> removeFromTeam(msg, msg.match[3])
   robot.respond /(remove|delete) me from( the)? (.*?) (team|group)/i, (msg) -> removeFromTeam(msg, msg.match[3])
   robot.respond /(load (me|us) up|dump (my|our) load[s]*)/i, (msg) -> retrieveLoads(msg, displayLoads)
-  robot.respone /what(\'s| is) my load/i, (msg) -> retrieveLoads(msg, showUserLoad)
+  robot.respond /what(\'s| is) my load/i, (msg) -> retrieveLoads(msg, showUserLoad)
 
