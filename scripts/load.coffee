@@ -54,7 +54,7 @@ showUserLoad = (msg, loads) ->
     if selectedLoad.value > 90
       comment = "My you're busy."
     else if selectedLoad.value < 30
-      comment = "Probably should chat to someone about getting more work."
+      comment = "You should probably chat to someone about getting more work."
     msg.send("Your load is " + selectedLoad.value + ". " + comment)
 
 module.exports = (robot) ->
