@@ -1,20 +1,20 @@
 {
-  "name":        "boris",
-  "version":     "1.0.0",
-  "author":      "Imulus",
-  "keywords":    "imulus boris github hubot slack bot",
+  "name": "boris",
+  "version": "1.0.0",
+  "author": "Imulus",
+  "keywords": "imulus boris github hubot slack bot",
   "description": "A Slack bot built on Hubot",
-
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/imulus/boris.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imulus/boris.git"
   },
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
+    "hubot-slack": "~2.0.4",
     "optparse": "1.0.3",
     "querystring": "*",
-    "hubot-slack": "~2.0.4"
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "coffee-script": "1.3.3",
